@@ -1,9 +1,11 @@
-import Image from "next/image";
+import BlogCard from "./components/BlogCard";
 
 export default function Home() {
   return (
-    <div>
-      <h1>hii</h1>
-    </div>
+    <>
+      <div className="px-2 py-4 flex items-center justify-center flex-col">
+        <BlogCard />
+      </div>
+    </>
   );
 }

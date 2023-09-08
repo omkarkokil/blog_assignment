@@ -6,14 +6,14 @@ const useRoutes = () => {
 
     const routes = useMemo(() => [
         {
-            label: "Write",
+            label: "Home",
             href: "/",
             active: pathname === "/"
         },
         {
-            label: "Blogs",
-            href: "/Blogs",
-            active: pathname === "/Blogs"
+            label: "Write",
+            href: "/Write",
+            active: pathname === "/Write"
         }
     ], [pathname])
 
