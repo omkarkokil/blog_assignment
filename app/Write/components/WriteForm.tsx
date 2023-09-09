@@ -19,18 +19,19 @@ const WriteForm: FC = () => {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
       [{ size: ["small", false, "large", "huge"] }],
-      ["bold", "italic"],
+      ["bold", "italic", "underline", "strike"],
       ["blockquote", "code-block"],
       [{ color: [] }, { background: [] }],
       [{ script: "sub" }, { script: "super" }],
+
       [{ list: "ordered" }, { list: "bullet" }],
       [{ indent: "-1" }, { indent: "+1" }],
       [{ direction: "rtl" }],
       [{ align: [] }],
+
       ["clean", "link", "video"],
     ],
   };
-
   // states
   const [loading, setLoading] = useState(false);
   const [content, setContent] = useState("");
@@ -61,6 +62,7 @@ const WriteForm: FC = () => {
       setContent("");
       setImage("");
       setTitle("");
+      router.refresh();
       router.push("/");
     } catch (error) {
       toast.error("something went wrong please try again", { id: "1" });
@@ -80,7 +82,7 @@ const WriteForm: FC = () => {
         />
       </div>
       <div className="flex w-full  items-center justify-between">
-        <div className="flex gap-2  items-center justify-center">
+        <div className="flex gap-4 items-center justify-center">
           <CldUploadButton
             options={{ maxFiles: 1 }}
             onUpload={(result: any) => {

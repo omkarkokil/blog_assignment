@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .quill > .ql-container > .ql-editor.ql-blank::before {
-  font-size: 20px;
+  font-size: 18px;
   color: gray;
 }
 .ql-editor {
-  font-size: 20px;
+  font-size: 18px;
 }

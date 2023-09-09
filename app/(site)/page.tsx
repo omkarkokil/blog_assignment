@@ -1,10 +1,36 @@
+import { notFound } from "next/navigation";
 import BlogCard from "./components/BlogCard";
+import { BlogsProps } from "@/interfaces/Blogs";
 
-export default function Home() {
+const getBlogs = async () => {
+  const res = await fetch(process.env.NEXT_PUBLIC_GET_BLOGS!, {
+    cache: "no-store",
+  });
+
+  if (res.status === 404) {
+    console.log("error");
+    return notFound();
+  }
+
+  return res.json();
+};
+
+export default async function Home() {
+  const blogs: BlogsProps[] = await getBlogs();
+
   return (
     <>
-      <div className="px-2 py-4 flex items-center justify-center flex-col">
-        <BlogCard />
+      <div className="px-2 py-4 flex gap-4 items-center justify-center flex-col">
+        {blogs.map((blog, id) => (
+          <BlogCard
+            _id={blog._id}
+            title={blog.title}
+            content={blog.content}
+            image={blog.image}
+            createdAt={blog.createdAt}
+            key={id}
+          />
+        ))}
       </div>
     </>
   );
