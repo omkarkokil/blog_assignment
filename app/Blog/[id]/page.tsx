@@ -1,3 +1,6 @@
+import getBlogById from "@/app/actions/geBlogById";
+import { BlogsProps } from "@/interfaces/Blogs";
+import { IBlog } from "@/models/Blog";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -11,18 +14,8 @@ interface IParams {
   id: string;
 }
 
-const getSingleBlogs = async (id: string) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_GET_BLOGS}/${id}`, {
-    cache: "no-store",
-  });
-  if (res.status === 404) {
-    toast.error("Something went wrong");
-  }
-  return res.json();
-};
-
 const page = async ({ params }: { params: IParams }) => {
-  const blog = await getSingleBlogs(params.id);
+  const blog: any = await getBlogById(params.id);
 
   return (
     <div className="flex  items-center justify-center">
