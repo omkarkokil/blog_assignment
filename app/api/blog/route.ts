@@ -17,13 +17,3 @@ export async function POST(request: Request) {
     }
 }
 
-export async function GET(request: Request) {
-    try {
-        await connect();
-        const data = await Blog.find().sort({ createdAt: -1 })
-        return NextResponse.json(data, { status: 200 })
-    } catch (error: any) {
-        console.log(error);
-        return new NextResponse("Server has an error", { status: 400 })
-    }
-}

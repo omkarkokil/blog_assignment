@@ -102,7 +102,7 @@ const WriteForm: FC = () => {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setTitle(e.target.value)
             }
-            className="text-4xl leading-[0px] dark:bg-transparent dark:placeholder:text-gray-500 outline-none border-none"
+            className="text-4xl w-full leading-[0px] dark:bg-transparent dark:placeholder:text-gray-500 outline-none border-none"
             placeholder="Title"
           />
         </div>
