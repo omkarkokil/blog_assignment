@@ -1,14 +1,15 @@
 import { notFound } from "next/navigation";
 import BlogCard from "./components/BlogCard";
 import { BlogsProps } from "@/interfaces/Blogs";
+import toast from "react-hot-toast";
 
 const getBlogs = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_GET_BLOGS!, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_GET_BLOGS}`, {
     cache: "no-store",
   });
 
   if (res.status === 404) {
-    console.log("error");
+    toast.error("Something went wrong");
     return notFound();
   }
 
