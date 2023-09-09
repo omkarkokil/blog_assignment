@@ -82,7 +82,7 @@ const WriteForm: FC = () => {
         />
       </div>
       <div className="flex w-full  items-center justify-between">
-        <div className="flex gap-4 items-center justify-center">
+        <div className="flex gap-4 w-full items-center justify-center">
           <CldUploadButton
             options={{ maxFiles: 1 }}
             onUpload={(result: any) => {

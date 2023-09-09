@@ -10,10 +10,11 @@ const Home = async () => {
       <div className="px-2 py-4 flex gap-4 items-center justify-center flex-col">
         {blogs.map((blog, id) => (
           <BlogCard
-            _id={blog._id}
+            _id={blog._id?.toString()}
             title={blog.title}
-            content={blog.content}
+            content={blog.content.toString()}
             image={blog.image}
+            createdAt={blog.createdAt?.toString()}
             key={id}
           />
         ))}
