@@ -1,3 +1,4 @@
+"use server"
 import Blog from "@/models/Blog";
 import connect from "@/utils/db";
 

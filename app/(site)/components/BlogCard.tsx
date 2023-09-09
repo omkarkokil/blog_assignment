@@ -7,7 +7,6 @@ import { BlogsProps } from "@/interfaces/Blogs";
 import dynamic from "next/dynamic";
 const Content = dynamic(() => import("./Content"), { ssr: false });
 
-import { format } from "date-fns";
 const BlogCard: FC<BlogsProps> = ({ _id, title, image }) => {
   return (
     <>
